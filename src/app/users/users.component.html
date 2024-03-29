@@ -1,0 +1,53 @@
+<section>
+  <div class="container-fluid h-custom px-20">
+    <h1>User's</h1>
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Work</th>
+            <!-- <th>Action</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          @for(user of data; track user.Id){
+          <tr>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="ms-3">
+                  <p class="fw-bold mb-1">{{ user.id }}</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{ user.fullName }}</p>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{ user.email }}</p>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{ user.age }} Year's old</p>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{ user.work }}</p>
+            </td>
+            <!-- <td>
+              <button
+                type="button"
+                class="btn btn-link btn-rounded btn-sm fw-bold"
+                data-mdb-ripple-color="dark"
+              >
+                Delete
+              </button>
+            </td> -->
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
