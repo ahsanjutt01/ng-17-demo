@@ -1,5 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HttpHeaders,
+} from '@angular/common/http';
 import { Component, OnInit, inject } from '@angular/core';
 
 @Component({
@@ -17,8 +21,12 @@ export class UsersComponent implements OnInit {
   }
 
   fetchUsers(): void {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+    });
     this.httpClient
-      .get('https://localhost:7095/api/User')
+      .get('https://localhost:7095/api/User', { headers })
       .subscribe((response: any) => {
         console.log(response);
         this.data = response;
